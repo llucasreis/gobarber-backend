@@ -3,16 +3,12 @@ import { Router } from 'express';
 import { getCustomRepository } from 'typeorm';
 import { parseISO } from 'date-fns';
 
-import AppointmentsRepository from '../repositories/AppointmentsRepository';
-import CreateAppointmentService from '../services/CreateAppointmentService';
+import AppointmentsRepository from '@modules/appointments/repositories/AppointmentsRepository';
+import CreateAppointmentService from '@modules/appointments/services/CreateAppointmentService';
 
-import ensuredAuthenticated from '../middlewares/ensureAuthenticated';
+import ensuredAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated';
 
 const appointmentsRouter = Router();
-
-// SoC : Separtion of of Concerns (Separação de Preocupação)
-// DTO -> Data Transfer Object
-// Rota: Recebe a requisição, chamar outro arquivo, devolver uma resposta
 
 appointmentsRouter.use(ensuredAuthenticated);
 
