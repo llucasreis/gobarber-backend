@@ -10,7 +10,7 @@ import User from '../../infra/typeorm/entities/User';
 // camadas de banco de dados devem ser possíveis de ser substituídas
 // o service não deve conhecer o repositório
 
-class UsersRepository implements IUsersRepository {
+class FakeUsersRepository implements IUsersRepository {
   private users: User[] = [];
 
   public async findById(id: string): Promise<User | undefined> {
@@ -48,4 +48,4 @@ class UsersRepository implements IUsersRepository {
   }
 }
 
-export default UsersRepository;
+export default FakeUsersRepository;
