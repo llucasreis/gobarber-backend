@@ -10,6 +10,10 @@ import {
 } from 'typeorm';
 import User from '@modules/users/infra/typeorm/entities/User';
 
+/**
+ * EAGER - Trazer os dados da relação
+ */
+
 @Entity('appointments')
 class Appointment {
   @PrimaryGeneratedColumn('uuid')
